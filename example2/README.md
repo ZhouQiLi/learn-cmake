@@ -58,7 +58,7 @@ ADD_LIBRARY的功能也与ADD_EXECUTABLE也类似，通过列表SRC_LIST中的�
 外部要调用我们生成的函数除了链接静态库外，还需要导入相应的头文件，所以我们需要将所需头文件拷贝到指定目录中方便被导入。
 FILE命令目的是将指定目录下的所有文件拷贝到DESTINATION中，因为我们只需要.h头文件，
 所以还要再添加一个FILES_MATCHING做文件匹配，只有.h文件才会执行拷贝操作。
-注意在${CMAKE_CURRENT_SOURCE_DIR}的最后还有个/，表示拷贝的内容不包括本目录，此处${CMAKE_CURRENT_SOURCE_DIR}的值为example2/src，
+注意在CMAKE_CURRENT_SOURCE_DIR变量最后还有个反斜杠，表示拷贝的内容不包括本目录，此处${CMAKE_CURRENT_SOURCE_DIR}的值为example2/src，
 如果没有最后的/，则拷贝到include中的结构为include/src/...，加上/后结构为include/...。FILE会根据所属目录中的文件结构来执行拷贝操作。
 在src/hello2/里的文件拷贝后存放在include/hello2/中。
 
