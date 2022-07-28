@@ -2,11 +2,12 @@
 
 ### 目标：生成一个可执行文件到指定目录。
 
-EXECUTABLE_OUTPUT_PATH变量定义了执行文件将安装的路径。
+**EXECUTABLE_OUTPUT_PATH**变量定义了执行文件将安装的路径。
 
-PROJECT_SOURCE_DIR变量返回的是项目的根目录。
+**PROJECT_SOURCE_DIR**变量返回的是最近一层定义了PROJECT的CMakeList.txt目录。
 
-本例中SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)的作用是将可执行文件安装到example1/bin目录下。
+本例中**SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)** 
+的作用是将可执行文件安装到example1/bin目录下。
 
 如果将PROJECT_SOURCE_DIR换成PROJECT_BINARY_DIR会有啥变化呢？
 
@@ -23,7 +24,7 @@ cmake ..
 cmake .
 ````
 
-PROJECT_SOURCE_DIR会指向工程的根目录，也就是定义了PROJECT变量的CMakeLists.txt所在目录。而PROJECT_BINARY_DIR会指向执行cmake命令时的路径。
+PROJECT_SOURCE_DIR会指向最近一层的定义了PROJECT变量的目录。而PROJECT_BINARY_DIR会指向执行cmake命令时的路径。
 
 所以本例中如果是包内执行cmake，则PROJECT_SOURCE_DIR与PROJECT_BINARY_DIR的路径是一样的，都在example1/bin中。
 
